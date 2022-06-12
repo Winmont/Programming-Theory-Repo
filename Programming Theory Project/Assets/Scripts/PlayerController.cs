@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : Unit
+
+public class PlayerController : Unit // INHERITANCE
 {
     float baseAttackDamage = 5;
     float baseAttackSpeed = 1.0f;
@@ -21,6 +22,7 @@ public class PlayerController : Unit
     // Start is called before the first frame update
     void Start()
     {
+        
         health = 100.0f;
         moveSpeed = 5.0f;
         attackDamage = 5.0f;
@@ -42,7 +44,7 @@ public class PlayerController : Unit
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             unequipItem();
-            EquipItem(inventory[0]);
+            EquipItem(inventory[0]); // ABSTRACTION
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -72,7 +74,7 @@ public class PlayerController : Unit
 
     private void EquipItem(Item item)
     {
-        Debug.Log(item.GetItemName() + " was equipped");
+        Debug.Log(item.GetItemName() + " was equipped");// ENCAPSULATION
         if (item.GetItemName() == "axe")
         {
             displayedItem = Instantiate(axe, hand.transform.position,Quaternion.identity,hand.transform);
@@ -98,7 +100,7 @@ public class PlayerController : Unit
         attackSpeed = baseAttackSpeed;
     }
 
-    protected override void UpdateHealth()
+    protected override void UpdateHealth() // POLYMORPHISM
     {
         hpText.text = "Player HP: " + health;
     }
