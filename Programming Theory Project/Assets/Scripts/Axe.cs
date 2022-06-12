@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Axe : MonoBehaviour
+public class Axe : Item
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    private float attackDamage = 20;
+    private float attackSpeed = 1.0f;
+
+    private void Start()
     {
-        
+        //itemName = "axe";
     }
 
-    // Update is called once per frame
-    void Update()
+    public override float[] useItem()
     {
-        
+        return new float[] { attackDamage, attackSpeed };
     }
+
+    public override string GetItemName()
+    {
+       return "axe";
+    }
+
 }

@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Sword : Item
 {
-    // Start is called before the first frame update
-    void Start()
+    private float attackDamage = 10;
+    private float attackSpeed = 0.5f;
+
+    private void Start()
     {
-        
+        //itemName = "sword";
     }
 
-    // Update is called once per frame
-    void Update()
+    public override float[] useItem()
     {
-        
+        return new float[] { attackDamage, attackSpeed };
+    }
+
+    public override string GetItemName()
+    {
+        return "sword";
     }
 }

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : Unit
 {
+    [SerializeField] Text hpText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +18,11 @@ public class Enemy : Unit
     {
         
     }
+
+    protected override void UpdateHealth()
+    {
+        hpText.text = "Enemy HP: " + health;
+    }
+
+
 }
